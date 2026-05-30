@@ -10,4 +10,5 @@ public class DesculpaAiApplication {
 		SpringApplication.run(DesculpaAiApplication.class, args);
 	}
 
+
 }
