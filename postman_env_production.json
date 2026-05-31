@@ -1,0 +1,39 @@
+{
+  "info": {
+    "name": "DesculpaAI Production Environment",
+    "description": "Variáveis de ambiente para produção",
+    "_postman_variable_scope": "environment"
+  },
+  "values": [
+    {
+      "key": "base_url",
+      "value": "https://api.desculpaai.com/api",
+      "enabled": true,
+      "type": "string"
+    },
+    {
+      "key": "protocol",
+      "value": "https",
+      "enabled": true,
+      "type": "string"
+    },
+    {
+      "key": "host",
+      "value": "api.desculpaai.com",
+      "enabled": true,
+      "type": "string"
+    },
+    {
+      "key": "port",
+      "value": "443",
+      "enabled": true,
+      "type": "string"
+    },
+    {
+      "key": "content_type",
+      "value": "application/json",
+      "enabled": true,
+      "type": "string"
+    }
+  ]
+}

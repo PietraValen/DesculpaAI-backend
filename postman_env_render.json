@@ -1,0 +1,39 @@
+{
+  "info": {
+    "name": "DesculpaAI Render Environment",
+    "description": "Variáveis de ambiente para Render staging/production",
+    "_postman_variable_scope": "environment"
+  },
+  "values": [
+    {
+      "key": "base_url",
+      "value": "https://desculpaai-backend.onrender.com/api",
+      "enabled": true,
+      "type": "string"
+    },
+    {
+      "key": "protocol",
+      "value": "https",
+      "enabled": true,
+      "type": "string"
+    },
+    {
+      "key": "host",
+      "value": "desculpaai-backend.onrender.com",
+      "enabled": true,
+      "type": "string"
+    },
+    {
+      "key": "port",
+      "value": "443",
+      "enabled": true,
+      "type": "string"
+    },
+    {
+      "key": "content_type",
+      "value": "application/json",
+      "enabled": true,
+      "type": "string"
+    }
+  ]
+}

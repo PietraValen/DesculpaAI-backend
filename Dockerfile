@@ -36,7 +36,7 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
 EXPOSE ${PORT:-8080}
 
 # Set default Spring profile to 'render' (can be overridden)
-ENV SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE:render}
+ENV SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE:-render}
 
 # Run the application with Spring profile
-ENTRYPOINT ["java", "-Dspring.profiles.active=${SPRING_PROFILES_ACTIVE}", "-jar", "app.jar"]
+ENTRYPOINT ["sh", "-c", "java -Dspring.profiles.active=${SPRING_PROFILES_ACTIVE} -jar app.jar"]
