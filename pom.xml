@@ -11,14 +11,18 @@
 	<groupId>com.hackathon</groupId>
 	<artifactId>DesculpaAI</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name/>
-	<description/>
-	<url/>
+	<name>DesculpaAI Backend</name>
+	<description>Aplicação de Geração de Alibis com IA</description>
+	<url>https://github.com/PietraValen/DesculpaAI-backend</url>
 	<licenses>
-		<license/>
+		<license>
+			<name>MIT License</name>
+		</license>
 	</licenses>
 	<developers>
-		<developer/>
+		<developer>
+			<name>DesculpaAI Team</name>
+		</developer>
 	</developers>
 	<scm>
 		<connection/>
@@ -59,6 +63,13 @@
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
+		<!-- OpenAPI / Swagger -->
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+			<version>2.0.2</version>
+		</dependency>
+		<!-- Testing -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
