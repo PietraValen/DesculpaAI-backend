@@ -1,97 +1,196 @@
-# DesculpaAI - Backend
+# 🌌 DesculpaAI - Backend
 
-Backend da aplicação DesculpaAI desenvolvido para hackathon usando **Spring Boot 3** e **Java 21**.
+> *No início, o Universo foi criado. Isso deixou muitas pessoas muito furiosas e amplamente considerado como um movimento estúpido. Mas no que diz respeito ao DesculpaAI, bem... isso ainda é bem estúpido.*
 
-## 📋 Características Principais
+## 📖 O que é isso?
 
-- ✅ **API RESTful** com Spring Web
-- ✅ **Banco de Dados** com Spring Data JPA
-- ✅ **Validação de Dados** integrada
-- ✅ **Hot Reload** com Spring DevTools
-- ✅ **Java 21** - Última versão LTS
+DesculpaAI é um backend RESTful que gera desculpas criativas e absurdas para qualquer situação. Desenvolvido em **Spring Boot 3** com **Java 21** durante um hackathon, porque em vez de consertar seus problemas, é muito mais fácil ter desculpas criativas para eles.
 
-## 🛠️ Tecnologias Utilizadas
+A resposta para tudo é 42, mas a resposta para quantos endpoints temos é 12. Coincidência? Talvez.
 
-- **Java 21**
-- **Spring Boot 3.5.15**
-- **Spring Data JPA**
-- **Spring Web (REST)**
-- **Maven** para build
-- **Spring DevTools** para desenvolvimento
+## ⭐ Características (ou Razões para Usar Isso)
 
-## ⚙️ Configuração do Projeto
+- ✅ **API RESTful** com Spring Web - Para fazer requisições HTTP sem deixar seu sofá
+- ✅ **Banco de Dados** com Spring Data JPA - Porque dados são coisas que existem em algum lugar
+- ✅ **Validação de Dados** integrada - Para evitar enviar dados tão ruins quanto suas desculpas
+- ✅ **Hot Reload** com Spring DevTools - Para não precisar reiniciar a vida toda vez
+- ✅ **Java 21** - A versão tão futura que ainda estamos tentando compreendê-la
+- ✅ **Swagger UI** - Documentação interativa, porque ler é para perdedores
+- ✅ **12 Endpoints** - Todos tão úteis quanto uma porta giratória no ar
 
-### Pré-requisitos
+## 🛸 Tecnologias Utilizadas
 
-- Java 21 instalado
-- Maven 3.6.0+
+```
+Java 21 ........................... Linguagem de programação que constrói universos
+Spring Boot 3.5.15 ................ O que faz tudo funcionar, principalmente por magia
+Spring Data JPA ................... Para conversar com seu banco de dados
+Spring Web ........................ API REST para quando você precisa fazer requisições
+Maven 3.8.7 ....................... Faz coisas compilarem quando você grita para ela
+Spring DevTools ................... Codificação sem reiniciar, uma bênção divina
+Springdoc OpenAPI 2.0.2 ........... Transforma código em documentação lindinha
+PostgreSQL ........................ Onde vivem seus dados (quando você os encontra)
+```
 
-### Instalação
+## ⚙️ Antes de Começar (O Impaciente)
+
+### Pré-requisitos (infelizmente necessários)
+
+- **Java 21** - Instale [aqui](https://www.oracle.com/java/technologies/downloads/) ou comente sobre o tempo
+- **Maven 3.6.0+** - Ou use `./mvnw` que vem incluído (como sapatos em um sapato)
+
+### Instalação em 3 Passos Fáceis (ou 47 difíceis)
 
 ```bash
-# Clone o repositório
+# Passo 1: Clone o repositório (antes que ele desapareça)
 git clone https://github.com/PietraValen/DesculpaAI-backend.git
 cd DesculpaAI-backend
 
-# Instale as dependências
+# Passo 2: Instale as dependências (deixe o computador pensar)
 ./mvnw clean install
+
+# Passo 3: Desfrute do silêncio enquanto maven faz seu trabalho
+# (Aproveite para fazer café, existencialismo, ou ambos)
 ```
 
-## 🚀 Como Executar
+## 🚀 Como Fazer Isso Funcionar
 
+### Opção A: Para os Impacientes
 ```bash
-# Modo desenvolvimento (com hot reload)
 ./mvnw spring-boot:run
+# Aplicação estará em http://localhost:8080 em questão de energias cósmicas
+```
 
-# Ou gere o JAR e execute
+### Opção B: Para os Pacientes (ou sem internet)
+```bash
 ./mvnw clean package
 java -jar target/DesculpaAI-0.0.1-SNAPSHOT.jar
+# Mesma coisa, mas você é mais autossuficiente
 ```
 
-A aplicação estará disponível em `http://localhost:8080`
+## 🌐 Endpoints - Guia Rápido de Sobrevivência
 
-## 📁 Estrutura do Projeto
+| Método | Endpoint | Para Quê | Desempenho |
+|--------|----------|----------|-----------|
+| GET | `/api/usuarios` | Ver todos | Rápido |
+| POST | `/api/usuarios` | Criar novo | Depende do seu Wi-Fi |
+| GET | `/api/usuarios/{id}` | Detalhe usuario | +/- 42ms |
+| PUT | `/api/usuarios/{id}` | Atualizar usuario | Questionável |
+| DELETE | `/api/usuarios/{id}` | Deletar usuario | Irreversível |
+| POST | `/api/pedidos` | Criar desculpa | Impossível medir em tempo |
+| GET | `/api/pedidos` | Ver desculpas | Como olhar um espelho |
+| GET | `/api/pedidos/{id}` | Uma desculpa | Existencial |
+| PUT | `/api/pedidos/{id}/status` | Mudar status desculpa | Confusão garantida |
+| GET | `/api/pedidos/{id}/alibi` | Gerar alibi criativo | **Priceless** |
 
+## 📚 Documentação (Se você realmente quer ler)
+
+A documentação ao vivo está em: `http://localhost:8080/swagger-ui.html`
+
+É como ter um guia do mochileiro, mas para sua API.
+
+### Arquivos Importantes de Saber
 ```
 src/
 ├── main/
 │   ├── java/com/hackathon/DesculpaAI/
-│   │   └── DesculpaAiApplication.java      # Classe principal Spring Boot
+│   │   ├── controller/ ............ Recebem requisições (tipo garçons)
+│   │   ├── service/ ............... Processam lógica (tipo cozinheiros)
+│   │   ├── repository/ ............ Falam com banco de dados (tipo espiadoras)
+│   │   ├── model/ ................. Entidades (tipo atores de novela)
+│   │   ├── dto/ ................... Mensageiros (tipo WhatsApp do código)
+│   │   ├── exception/ ............. Coisas dando errado (tipo viver)
+│   │   └── config/ ................ Configurações (tipo receita de bolo)
 │   └── resources/
-│       └── application.properties           # Configurações da aplicação
+│       └── application.properties .. Onde vivem as configurações
 └── test/
-    └── java/com/hackathon/DesculpaAI/     # Testes unitários
+    └── java/ ...................... Código que testa código (Meta!)
 ```
 
-## 📝 Configurações
+## 🔧 Configuração (Personalize sua Experiência)
 
-Edite `src/main/resources/application.properties` para configurar:
+Edite `src/main/resources/application.properties`:
 
-- Porta da aplicação (padrão: 8080)
-- Banco de dados
-- Outras configurações específicas
+```properties
+# Porta (por padrão, 8080, o que é um bom número)
+server.port=8080
 
-## 🧪 Testes
+# Banco de dados (mude se achar necessário)
+spring.datasource.url=jdbc:postgresql://localhost:5432/desculpaai
+spring.datasource.username=seu_usuario
+spring.datasource.password=sua_senha
+
+# Logging (veja o que está acontecendo nos bastidores)
+logging.level.root=INFO
+```
+
+## 🧪 Testes (Para Verificar se Está Funcionando)
 
 ```bash
-# Execute todos os testes
+# Execute os testes
 ./mvnw test
+
+# Se tudo passar, o universo ainda faz sentido
+# Se falhar, bem... provavelmente é bug cósmico
 ```
 
-## 📚 Documentação
+## 📊 Estrutura de Dados
 
-- [Spring Boot Documentation](https://spring.io/projects/spring-boot)
-- [Spring Data JPA](https://spring.io/projects/spring-data-jpa)
-- [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
+### Usuario (Você)
+- `id` - Identificador único (como um número de segurança galáctico)
+- `nome` - Como você prefere ser chamado
+- `email` - Para quando precisamos encontrá-lo
+- `criadoEm` - Nascimento no sistema
+- `atualizadoEm` - Última vida pregressa
+
+### Pedido (Sua Desculpa)
+- `id` - Identificador único da desculpa
+- `tipoAlibi` - Qual tipo de desculpa você precisa
+- `nivelAbsurdo` - De 1 (leve) a 5 (universo)
+- `status` - Aberto, Processando, Concluído, etc
+- `usuario` - Quem pediu essa desculpa
+- `criadoEm` - Quando você começou a mentir
+
+## 🎯 Quick Start Script
+
+Se você é realmente impaciente, existe `quick-start.sh` que faz tudo para você:
+```bash
+chmod +x quick-start.sh
+./quick-start.sh
+```
+
+É como ter um mapa de tesouro, mas para seu backend.
+
+## 🚨 Troubleshooting (Se algo deu errado)
+
+**P: Maven não está funcionando**
+R: Nem tudo funciona. Especialmente maven.
+
+**P: Erro de porta já em uso**
+R: Mude para outra porta em `application.properties`
+
+**P: Precisava de uma desculpa mas só obtenho erros**
+R: É meta. Pelo menos a desculpa é real.
+
+**P: Nada disso faz sentido**
+R: Bem-vindo à programação.
+
+## 📝 Notas Importantes
+
+- Este projeto foi criado em um **Hackathon**, significando que o código é bonito por acidente
+- Não é responsável por desculpas ineficazes na vida real
+- Se suas desculpas forem muito absurdas, pode ser culpa sua, não nossa
+- A resposta para tudo continua sendo 42
 
 ## 👥 Contribuidores
 
-- Desenvolvido para hackathon
+- Desenvolvido para hackathon por pessoas que evitam responsabilidades
 
 ## 📄 Licença
 
-Este projeto está sob licença a definir.
+MIT License - Use responsavelmente (ou não, isto é livre ainda)
 
 ---
 
-**Nota:** Este README é um template básico. Atualize com informações específicas sobre os endpoints, banco de dados e funcionalidades conforme o desenvolvimento do projeto.
+**Aviso Final:** *Se você leu tudo isso, parabéns. Se não leu, clique em `/swagger-ui.html` e seja feliz.*
+
+> "A vida é como um mochileiro atravessando a galáxia. Você nunca sabe o que vem a seguir, mas esse backend pode ajudar a inventar uma desculpa para quando chegue lá."
