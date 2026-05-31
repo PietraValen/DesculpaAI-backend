@@ -31,3 +31,13 @@ build/
 
 ### VS Code ###
 .vscode/
+### Environment ###
+.env
+.env.local
+
+### Documentation ###
+*.md
+!README.md
+
+### Text Files ###
+*.txt
