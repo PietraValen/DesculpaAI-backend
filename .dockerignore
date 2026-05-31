@@ -1,0 +1,64 @@
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Maven
+target/
+.m2
+*.class
+*.jar
+*.war
+
+# IDE
+.vscode
+.idea
+*.iml
+*.iws
+*.ipr
+.DS_Store
+
+# Gradle
+.gradle
+build/
+gradle/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Logs
+logs/
+*.log
+
+# Documentation
+*.md
+README.md
+SUMMARY.md
+DOCUMENTACAO.md
+ESTRUTURA_PROJETO.md
+HELP.md
+INDEX.md
+MELHORIAS_IMPLEMENTADAS.md
+POSTMAN_GUIDE.md
+FINALIZADO.txt
+
+# Postman
+*.postman_collection.json
+
+# Node (if you have frontend)
+node_modules/
+npm-debug.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Shell scripts
+*.sh
+quick-start.sh
+
+# Others
+.mvnw
+mvnw.cmd

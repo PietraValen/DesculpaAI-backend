@@ -8,6 +8,7 @@ import java.util.Random;
 
 import org.springframework.stereotype.Component;
 
+import com.hackathon.DesculpaAI.model.AlibiRoteiro;
 import com.hackathon.DesculpaAI.model.NivelAbsurdo;
 import com.hackathon.DesculpaAI.model.TipoAlibi;
 
@@ -117,5 +118,127 @@ public class BancoAlibi {
             return "Álibi indisponível no momento";
         }
         return alibis.get(random.nextInt(alibis.size()));
+    }
+
+    /**
+     * Obtém um roteiro completo de álibi aleatório baseado no tipo e nível de
+     * absurdo.
+     *
+     * @param tipo tipo de álibi desejado
+     * @param nivelAbsurdo nível de absurdo (1-5)
+     * @return AlibiRoteiro com papel, missão, frases obrigatória e proibida
+     */
+    public AlibiRoteiro obterAlibiAleatorio(TipoAlibi tipo, int nivelAbsurdo) {
+        NivelAbsurdo nivel = converterNivelAbsurdo(nivelAbsurdo);
+
+        // Gera papel baseado no tipo
+        String papel = gerarPapel(tipo);
+
+        // Gera missão baseada no tipo e nível
+        String missao = gerarMissao(tipo, nivel);
+
+        // Obtém frase obrigatória
+        String fraseObrigatoria = obterAlibEAleatorio(tipo, nivel);
+
+        // Obtém frase proibida (tipo diferente para criar conflito)
+        String fraseProibida = gerarFraseProibida(tipo);
+
+        log.debug("Roteiro gerado: tipo={}, nivel={}, papel={}", tipo, nivel, papel);
+
+        return AlibiRoteiro.builder()
+                .papel(papel)
+                .missao(missao)
+                .fraseObrigatoria(fraseObrigatoria)
+                .fraseProibida(fraseProibida)
+                .build();
+    }
+
+    /**
+     * Converte nível numérico (1-5) para enum NivelAbsurdo.
+     */
+    private NivelAbsurdo converterNivelAbsurdo(int nivel) {
+        return switch (nivel) {
+            case 1 ->
+                NivelAbsurdo.BAIXO;
+            case 2 ->
+                NivelAbsurdo.MEDIO;
+            case 3 ->
+                NivelAbsurdo.ALTO;
+            case 4 ->
+                NivelAbsurdo.CINEMATOGRAFICO;
+            case 5 ->
+                NivelAbsurdo.APOCALIPTICO;
+            default ->
+                NivelAbsurdo.MEDIO;
+        };
+    }
+
+    /**
+     * Gera um papel baseado no tipo de álibi.
+     */
+    private String gerarPapel(TipoAlibi tipo) {
+        return switch (tipo) {
+            case TRABALHO ->
+                "Executivo em Reunião Importante";
+            case DOENCA ->
+                "Paciente em Consulta Médica";
+            case FAMILIAR ->
+                "Membro da Família em Situação Crítica";
+            case ANIMAL ->
+                "Cuidador de Animal com Problema";
+            case LIVRE ->
+                "Pessoa com Compromisso Pessoal";
+        };
+    }
+
+    /**
+     * Gera uma missão baseada no tipo e nível de álibi.
+     */
+    private String gerarMissao(TipoAlibi tipo, NivelAbsurdo nivel) {
+        String base = switch (tipo) {
+            case TRABALHO ->
+                "Convencer que estava em uma reunião de trabalho crítica";
+            case DOENCA ->
+                "Justificar ausência por motivos de saúde";
+            case FAMILIAR ->
+                "Explicar situação familiar urgente";
+            case ANIMAL ->
+                "Justificar problema com animal de estimação";
+            case LIVRE ->
+                "Ter uma desculpa genérica pronta";
+        };
+
+        String intensidade = switch (nivel) {
+            case BAIXO ->
+                base;
+            case MEDIO ->
+                base + " com detalhes convincentes";
+            case ALTO ->
+                base + " com histórias elaboradas";
+            case CINEMATOGRAFICO ->
+                base + " com narrativa criativa e coerente";
+            case APOCALIPTICO ->
+                base + " com a narrativa mais absurda possível";
+        };
+
+        return intensidade;
+    }
+
+    /**
+     * Obtém uma frase que NÃO deve ser dita (conflita com a missão).
+     */
+    private String gerarFraseProibida(TipoAlibi tipo) {
+        return switch (tipo) {
+            case TRABALHO ->
+                "Eu estava aproveitando o tempo livre";
+            case DOENCA ->
+                "Eu estava em uma festa";
+            case FAMILIAR ->
+                "Eu nem liguei";
+            case ANIMAL ->
+                "Eu simplesmente abandonei meu animal";
+            case LIVRE ->
+                "Eu esqueci";
+        };
     }
 }
