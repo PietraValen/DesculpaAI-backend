@@ -1,0 +1,282 @@
+{
+  "info": {
+    "_postman_id": "desculpaai-backend-collection",
+    "name": "DesculpaAI Backend API",
+    "description": "Coleção de requisições para a API DesculpaAI - Geração de Alibis com IA",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Usuários",
+      "item": [
+        {
+          "name": "Criar Usuário",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"João Silva\",\n  \"email\": \"joao@example.com\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/usuarios",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "usuarios"]
+            },
+            "description": "Cria um novo usuário no sistema"
+          },
+          "response": []
+        },
+        {
+          "name": "Listar Todos os Usuários",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/usuarios",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "usuarios"]
+            },
+            "description": "Lista todos os usuários cadastrados"
+          },
+          "response": []
+        },
+        {
+          "name": "Obter Usuário por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/usuarios/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "usuarios", "1"]
+            },
+            "description": "Obtém um usuário específico pelo ID"
+          },
+          "response": []
+        },
+        {
+          "name": "Atualizar Usuário",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"João Pedro Silva\",\n  \"email\": \"joao.pedro@example.com\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/usuarios/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "usuarios", "1"]
+            },
+            "description": "Atualiza os dados de um usuário existente"
+          },
+          "response": []
+        },
+        {
+          "name": "Deletar Usuário",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/usuarios/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "usuarios", "1"]
+            },
+            "description": "Remove um usuário do sistema"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Pedidos",
+      "item": [
+        {
+          "name": "Criar Pedido",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tipoAlibi\": \"TRABALHO\",\n  \"nivelAbsurdo\": 3,\n  \"usuarioId\": 1\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/pedidos",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "pedidos"]
+            },
+            "description": "Cria um novo pedido de álibi. Tipos disponíveis: DOENCA, TRABALHO, ANIMAL, FAMILIAR, LIVRE. Nível de absurdo: 1-5"
+          },
+          "response": []
+        },
+        {
+          "name": "Listar Todos os Pedidos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/pedidos",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "pedidos"]
+            },
+            "description": "Lista todos os pedidos cadastrados"
+          },
+          "response": []
+        },
+        {
+          "name": "Obter Pedido por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/pedidos/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "pedidos", "1"]
+            },
+            "description": "Obtém um pedido específico pelo ID"
+          },
+          "response": []
+        },
+        {
+          "name": "Listar Pedidos por Status",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/pedidos/status/ABERTO",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "pedidos", "status", "ABERTO"]
+            },
+            "description": "Lista pedidos filtrando por status. Status disponíveis: ABERTO, ACEITO, FINALIZADO"
+          },
+          "response": []
+        },
+        {
+          "name": "Atualizar Status do Pedido",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/pedidos/1/status?novoStatus=ACEITO",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "pedidos", "1", "status"],
+              "query": [
+                {
+                  "key": "novoStatus",
+                  "value": "ACEITO"
+                }
+              ]
+            },
+            "description": "Atualiza o status de um pedido existente"
+          },
+          "response": []
+        },
+        {
+          "name": "Obter Álibi do Pedido",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/pedidos/1/alibi",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "pedidos", "1", "alibi"]
+            },
+            "description": "Retorna um álibi gerado para o pedido especificado"
+          },
+          "response": []
+        },
+        {
+          "name": "Deletar Pedido",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/pedidos/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "pedidos", "1"]
+            },
+            "description": "Remove um pedido do sistema"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Documentação",
+      "item": [
+        {
+          "name": "Swagger UI",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/swagger-ui.html",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["swagger-ui.html"]
+            },
+            "description": "Acesse a interface gráfica do Swagger para explorar e testar os endpoints"
+          },
+          "response": []
+        },
+        {
+          "name": "API Docs JSON",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/v3/api-docs",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["v3", "api-docs"]
+            },
+            "description": "Arquivo JSON com a documentação completa da API"
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
