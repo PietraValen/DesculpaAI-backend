@@ -17,23 +17,23 @@ services:
       - key: PORT
         value: 8080
       
-      # Database credentials (sincronize com seu banco PostgreSQL)
+      # Database credentials (sincronize com seu banco MySQL)
       - key: SPRING_DATASOURCE_URL
         fromDatabase:
-          name: desculpaai-db
+          name: desculpaai-mysql
           property: connectionString
       - key: SPRING_DATASOURCE_USERNAME
         fromDatabase:
-          name: desculpaai-db
+          name: desculpaai-mysql
           property: user
       - key: SPRING_DATASOURCE_PASSWORD
         fromDatabase:
-          name: desculpaai-db
+          name: desculpaai-mysql
           property: password
 
-  # Uncomment para adicionar banco de dados PostgreSQL
-  # - type: pserv
-  #   name: desculpaai-db
-  #   ipAllowList: []
-  #   plan: starter
-  #   postgresVersion: 16
+  # MySQL Database Service
+  - type: mysql
+    name: desculpaai-mysql
+    ipAllowList: []
+    plan: starter
+    mysqlVersion: "8.0"
