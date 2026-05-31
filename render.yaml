@@ -1,0 +1,39 @@
+services:
+  - type: web
+    name: desculpaai-backend
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    port: 8080
+    
+    # Auto-deploy em qualquer push
+    autoDeploy: true
+    
+    # Environment variables
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: prod
+      - key: SPRING_JPA_HIBERNATE_DDL_AUTO
+        value: update
+      - key: PORT
+        value: 8080
+      
+      # Database credentials (sincronize com seu banco PostgreSQL)
+      - key: SPRING_DATASOURCE_URL
+        fromDatabase:
+          name: desculpaai-db
+          property: connectionString
+      - key: SPRING_DATASOURCE_USERNAME
+        fromDatabase:
+          name: desculpaai-db
+          property: user
+      - key: SPRING_DATASOURCE_PASSWORD
+        fromDatabase:
+          name: desculpaai-db
+          property: password
+
+  # Uncomment para adicionar banco de dados PostgreSQL
+  # - type: pserv
+  #   name: desculpaai-db
+  #   ipAllowList: []
+  #   plan: starter
+  #   postgresVersion: 16
