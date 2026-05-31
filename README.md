@@ -82,7 +82,28 @@ java -jar target/DesculpaAI-0.0.1-SNAPSHOT.jar
 | PUT | `/api/pedidos/{id}/status` | Mudar status desculpa | Confusão garantida |
 | GET | `/api/pedidos/{id}/alibi` | Gerar alibi criativo | **Priceless** |
 
-## 📚 Documentação (Se você realmente quer ler)
+## � Deploy no Render (Quando Quiser Mostrar para Alguém)
+
+Quer colocar sua API funcionando na nuvem? Temos tudo pronto para você:
+
+- **[RENDER_DEPLOY_CHECKLIST.md](./RENDER_DEPLOY_CHECKLIST.md)** ⭐ **COMECE AQUI**
+  - Passo a passo completo para deploy no Render
+  - Checklist de verificação
+  - Troubleshooting rápido
+
+- **[RENDER_ENV_VARIABLES.md](./RENDER_ENV_VARIABLES.md)**
+  - Variáveis de ambiente necessárias
+  - Exemplos de configuração
+  - Como verificar se está funcionando
+
+- **[HIBERNATE_MYSQL_FIX.md](./HIBERNATE_MYSQL_FIX.md)**
+  - Resolução do erro SEQUENCES (PostgreSQL → MySQL)
+  - Configurações de Hibernate para MySQL 8.0
+  - Referências técnicas
+
+**TL;DR:** Migração concluída de PostgreSQL para MySQL 8.0. Docker pronto. Dockerfile configurado com Spring profiles. Tudo set para Render!
+
+## �📚 Documentação (Se você realmente quer ler)
 
 A documentação ao vivo está em: `http://localhost:8080/swagger-ui.html`
 

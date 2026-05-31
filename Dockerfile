@@ -35,5 +35,8 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
 # Expose port (Render uses PORT env variable)
 EXPOSE ${PORT:-8080}
 
-# Run the application
-ENTRYPOINT ["java", "-jar", "app.jar"]
+# Set default Spring profile to 'render' (can be overridden)
+ENV SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE:render}
+
+# Run the application with Spring profile
+ENTRYPOINT ["java", "-Dspring.profiles.active=${SPRING_PROFILES_ACTIVE}", "-jar", "app.jar"]
