@@ -36,6 +36,7 @@ public class Pedido {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String descricaoSituacao;
 
     @NotNull(message = "Tipo de álibi não pode ser nulo")
     @Enumerated(EnumType.STRING)
@@ -54,6 +55,49 @@ public class Pedido {
     @ManyToOne(optional = false)
     @JoinColumn(name = "usuario_id", nullable = false, foreignKey = @ForeignKey(name = "fk_pedido_usuario"))
     private Usuario usuario;
+
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
+    public String getdescricaoSituacao(){
+        return descricaoSituacao;
+    }
+    public void setDescricaoSituacao(String descricaoSituacao){
+        this.descricaoSituacao = descricaoSituacao;
+    }
+    public TipoAlibi getTipoAlibi() {
+        return tipoAlibi;
+    }
+    public void setTipoAlibi(TipoAlibi tipoAlibi) {
+        this.tipoAlibi = tipoAlibi;
+    }
+    public int getNivelAbsurdo() {
+        return nivelAbsurdo;
+    }
+    public void setNivelAbsurdo(int nivelAbsurdo) {
+        this.nivelAbsurdo = nivelAbsurdo;
+    }
+    public StatusPedido getStatus() {
+        return status;
+    }
+    public void setStatus(StatusPedido status) {
+        this.status = status;
+    }
+    public Usuario getUsuario() {
+        return usuario;
+    }
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
 
     @CreationTimestamp
     private LocalDateTime criadoEm;
