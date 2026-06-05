@@ -17,23 +17,12 @@ services:
       - key: PORT
         value: 8080
       
-      # Database credentials (sincronize com seu banco MySQL)
-      - key: SPRING_DATASOURCE_URL
-        fromDatabase:
-          name: desculpaai-mysql
-          property: connectionString
-      - key: SPRING_DATASOURCE_USERNAME
-        fromDatabase:
-          name: desculpaai-mysql
-          property: user
-      - key: SPRING_DATASOURCE_PASSWORD
-        fromDatabase:
-          name: desculpaai-mysql
-          property: password
-
-  # MySQL Database Service
-  - type: mysql
-    name: desculpaai-mysql
-    ipAllowList: []
-    plan: starter
-    mysqlVersion: "8.0"
+      # ⚠️  DATABASE CREDENTIALS DEVEM SER CONFIGURADAS NO RENDER DASHBOARD ⚠️
+      # - SPRING_DATASOURCE_URL: Get from your Aiven/external MySQL host
+      # - SPRING_DATASOURCE_USERNAME: Get from your Aiven/external MySQL
+      # - SPRING_DATASOURCE_PASSWORD: Get from your Aiven/external MySQL
+      
+      # Exemplo:
+      # SPRING_DATASOURCE_URL=jdbc:mysql://mysql-xxxx.aivencloud.com:3306/desculpaai
+      # SPRING_DATASOURCE_USERNAME=avnadmin
+      # SPRING_DATASOURCE_PASSWORD=your_password_here
